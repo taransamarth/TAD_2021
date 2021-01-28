@@ -53,7 +53,12 @@ year <- substr(hony$created_time, 1, 4) # extracts year from date created variab
 tapply(hony$shares_count, year, sum) # sum of shares by year
 
 #8. What was the total number of likes received by posts published each month?
-  
 
+# create vector by taking a substring of the numeric month from created_time for each post
+month <- substr(hony$created_time, 6, 7)
 
+# sum likes by month
+tapply(hony$likes_count,month,sum)
 
+# generate barplot for fun
+barplot(tapply(hony$likes_count,month,sum))
